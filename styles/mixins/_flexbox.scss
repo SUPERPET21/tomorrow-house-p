@@ -11,19 +11,19 @@ $flex-map: (
 	@return map-get($flex-map, $key);
 }
 
-@mixin felxbox($jc: center, $ai: center) {
+@mixin flexbox($jc: center, $ai: center) {
 	display: flex;
 	justify-content: _get-flex-value($jc);
 	align-items: _get-flex-value($ai);
 }
 
-@mixin inline-felxbox($jc: center, $ai: center) {
+@mixin inline-flexbox($jc: center, $ai: center) {
 	display: inline-flex;
 	justify-content: _get-flex-value($jc);
 	align-items: _get-flex-value($ai);
 }
 
-@mixin column-felxbox($jc: center, $ai: center) {
+@mixin column-flexbox($jc: center, $ai: center) {
 	display: flex;
 	flex-direction: column;
 	justify-content: _get-flex-value($jc);
