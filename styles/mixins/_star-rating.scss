@@ -1,4 +1,4 @@
-@mixin star-rating-base($size) {
+@mixin star-rating($size) {
 	@include flexbox(start);
 
 	.ic-star {

@@ -1,15 +1,15 @@
 .star-rating-13 {
-	@include star-rating-base(13px);
+	@include star-rating(13px);
 }
 
 .star-rating-16 {
-	@include star-rating-base(16px);
+	@include star-rating(16px);
 }
 
 .star-rating-20 {
-	@include star-rating-base(20px);
+	@include star-rating(20px);
 }
 
 .star-rating-24 {
-	@include star-rating-base(24px);
+	@include star-rating(24px);
 }
