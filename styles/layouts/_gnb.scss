@@ -1,12 +1,58 @@
+// .gnb {
+// 	position: relative;
+// 	border-bottom: 1px solid $border;
+// 	background-color: $white;
+
+// 	&-wrapper {
+// 		@include flexbox(between);
+// 		height: 50px;
+// 	}
+
+// 	&-icon-button {
+// 		@include flexbox;
+// 		width: 32px;
+// 		height: 32px;
+// 		font-size: 24px;
+// 		color: $secondary;
+
+// 		&.is-menu {
+// 			color: $blue;
+// 		}
+
+// 		&.is-search {
+// 			margin-right: 4px;
+// 		}
+// 	}
+
+// 	&-left {
+// 		.logo {
+// 			@include pos-center;
+
+// 			a {
+// 				display: block;
+// 			}
+
+// 			img {
+// 				display: block;
+// 				width: auto;
+// 				height: 20px;
+// 			}
+// 		}
+// 	}
+
+// 	&-right {
+// 		.button-group {
+// 			@include flexbox(end);
+// 		}
+// 	}
+// }
+
+// practice
+
 .gnb {
 	position: relative;
 	border-bottom: 1px solid $border;
 	background-color: $white;
-
-	&-wrapper {
-		@include flexbox(between);
-		height: 50px;
-	}
 
 	&-icon-button {
 		@include flexbox;
@@ -24,8 +70,13 @@
 		}
 	}
 
+	&-wrapper {
+		@include flexbox(between);
+		height: 50px;
+	}
+
 	&-left {
-		.logo {
+		.gnb-logo {
 			@include pos-center;
 
 			a {
@@ -43,6 +94,79 @@
 	&-right {
 		.button-group {
 			@include flexbox(end);
+		}
+	}
+
+	@include responsive(T) {
+		&-wrapper {
+			height: 80px;
+		}
+
+		&-left {
+			@include flexbox(start);
+
+			.gnb-logo {
+				position: static;
+				transform: none;
+				margin-right: 32px;
+
+				img {
+					height: 24px;
+				}
+			}
+
+			.gnb-nav {
+				&-list {
+					@include flexbox(start);
+				}
+
+				&-item {
+					&:not(:last-child) {
+						margin-right: 24px;
+					}
+
+					a {
+						@include text-style(18, $primary);
+						font-weight: 700;
+					}
+				}
+			}
+		}
+
+		&-right {
+			@include flexbox(start);
+
+			.input-group {
+				margin-right: 24px;
+			}
+
+			.button-group {
+				.gnb-icon-button {
+					@include flexbox;
+					margin-right: 8px;
+				}
+
+				.gnb-avatar-button {
+					margin-right: 24px;
+					cursor: pointer;
+				}
+			}
+
+			.btn-primary {
+				width: 88px;
+
+				.ic-chevron {
+					margin-left: 4px;
+				}
+			}
+		}
+	}
+
+	@include responsive(D) {
+		&-right {
+			.input-group {
+				width: 264px;
+			}
 		}
 	}
 }
