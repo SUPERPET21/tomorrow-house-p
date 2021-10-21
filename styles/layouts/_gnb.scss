@@ -43,6 +43,30 @@
 	&-right {
 		.button-group {
 			@include flexbox(end);
+
+			.gnb-icon-button {
+				&.is-cart {
+					position: relative;
+					$badge-size: 16px;
+
+					.badge {
+						@include flexbox;
+						min-width: 16px;
+						height: 16px;
+						border-radius: $badge-size / 2;
+						color: $white;
+						position: absolute;
+						right: 0;
+						top: 0;
+						background-color: $red;
+						font-size: 10px;
+						letter-spacing: -0.01em;
+						line-height: 16px;
+						font-weight: 700;
+						padding: 0 4px;
+					}
+				}
+			}
 		}
 	}
 
@@ -131,28 +155,6 @@
 					&:active {
 						background-color: $blue;
 						color: $white;
-					}
-
-					&.is-cart {
-						position: relative;
-						$badge-size: 16px;
-
-						.badge {
-							@include flexbox;
-							min-width: 16px;
-							height: 16px;
-							border-radius: $badge-size / 2;
-							color: $white;
-							position: absolute;
-							right: 0;
-							top: 0;
-							background-color: $red;
-							font-size: 10px;
-							letter-spacing: -0.01em;
-							line-height: 16px;
-							font-weight: 700;
-							padding: 0 4px;
-						}
 					}
 				}
 
