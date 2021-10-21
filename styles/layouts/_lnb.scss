@@ -1,0 +1,57 @@
+.lnb {
+	overflow-x: scroll;
+	border-bottom: 1px solid $border;
+	background-color: $white;
+	text-align: center;
+
+	&::-webkit-scrollbar {
+		display: none;
+	}
+
+	&-list {
+		@include inline-flexbox(start);
+		white-space: nowrap;
+		margin-left: -8px;
+	}
+
+	&-item {
+		a {
+			@include text-style(13px, $dark);
+			@include flexbox;
+			height: 40px;
+			font-weight: 700;
+			padding: 0 8px;
+			border-bottom: 2px solid transparent;
+
+			.ic-new {
+				color: $red;
+			}
+		}
+
+		&.is-active {
+			a {
+				color: $blue;
+				border-color: $blue;
+			}
+		}
+	}
+
+	@include responsive(T) {
+		text-align: left;
+
+		&-list {
+			margin-left: 0;
+		}
+
+		&-item {
+			a {
+				@include text-style(14);
+				height: 50px;
+
+				&:hover {
+					color: $blue;
+				}
+			}
+		}
+	}
+}
