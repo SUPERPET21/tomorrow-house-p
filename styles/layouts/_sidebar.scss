@@ -1,0 +1,129 @@
+.sidebar {
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: $white;
+	width: 240px;
+	height: 100vh;
+	padding: 32px 20px;
+	overflow-y: auto;
+
+	&::-webkit-scrollbar {
+		display: none;
+	}
+
+	&-header {
+		margin-bottom: 32px;
+	}
+
+	.logo {
+		margin-bottom: 32px;
+
+		a {
+			display: block;
+		}
+
+		img {
+			display: block;
+			height: 20px;
+			width: auto;
+		}
+	}
+
+	&-user {
+		a {
+			@include flexbox(start);
+			padding: 0 12px;
+
+			.avatar-24 {
+				margin-right: 8px;
+			}
+
+			strong {
+				@include text-style(14, $primary);
+			}
+		}
+	}
+
+	.sidebar-nav {
+		.sidebar-category {
+			border-top: 1px solid $border;
+
+			&.is-active {
+				.sidebar-category-header {
+					strong {
+						color: $blue;
+					}
+
+					i:last-child {
+						transform: rotate(-180deg) translateY(50%);
+					}
+				}
+			}
+
+			&-header {
+				position: relative;
+
+				button {
+					@include flexbox(start);
+					width: 100%;
+					padding: 0 12px;
+					padding-top: 12px;
+					padding-bottom: 14px;
+
+					i:first-child {
+						font-size: 24px;
+						color: $primary;
+						margin-right: 8px;
+					}
+
+					strong {
+						@include text-style(18, $primary);
+					}
+
+					i:last-child {
+						@include pos-center-y;
+						right: 12px;
+						font-size: 16px;
+						color: $primary;
+						transition: transform 200ms ease-in-out;
+					}
+				}
+			}
+
+			&-list {
+				margin-bottom: 8px;
+			}
+
+			&-item {
+				a {
+					@include text-style(14, $primary);
+					@include flexbox(start);
+					font-weight: 700;
+					height: 36px;
+					padding: 0 12px;
+
+					i {
+						font-size: 16px;
+						color: $red;
+					}
+				}
+			}
+		}
+
+		.sidebar-user-menu {
+			margin-top: 16px;
+			border-top: 1px solid $border;
+
+			.user-menu-item {
+				a {
+					@include flexbox(start);
+					@include text-style(14, $primary);
+					font-weight: 400;
+					height: 36px;
+					padding: 0 12px;
+				}
+			}
+		}
+	}
+}
