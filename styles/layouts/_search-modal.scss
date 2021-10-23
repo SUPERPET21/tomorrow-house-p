@@ -55,10 +55,13 @@
 			position: relative;
 
 			a {
-				@include flexbox(start);
 				@include text-style(16, $primary);
-				padding: 0 8px;
-				height: 44px;
+				padding: 10px 32px 10px 8px;
+				display: block;
+				width: 100%;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
 			}
 
 			button {
