@@ -1,0 +1,66 @@
+.search-modal {
+	position: fixed;
+	background-color: $white;
+	top: 0;
+	right: 0;
+	width: 100%;
+	height: 100vh;
+	padding-top: 12px;
+
+	&-header {
+		@include flexbox(start);
+		margin-bottom: 20px;
+
+		.input-group {
+			flex-grow: 1;
+			flex-shrink: 1;
+			margin-right: 8px;
+		}
+
+		.btn-ghost {
+			flex-grow: 0;
+			flex-shrink: 0;
+		}
+	}
+
+	.search-history {
+		&-header {
+			@include flexbox(between);
+			@include text-style(13, $secondary);
+			margin-bottom: 8px;
+			font-weight: 400;
+
+			button {
+				@include text-style(13, $secondary);
+				font-weight: 400;
+			}
+		}
+
+		&-content {
+			span {
+				@include flexbox(start);
+				@include text-style(16, $secondary);
+				padding: 0 8px;
+				height: 44px;
+			}
+		}
+
+		&-item {
+			position: relative;
+
+			a {
+				@include flexbox(start);
+				@include text-style(16, $primary);
+				padding: 0 8px;
+				height: 44px;
+			}
+
+			button {
+				@include text-style(16, $tertiary);
+				@include pos-center-y;
+				right: 8px;
+				padding: 4px;
+			}
+		}
+	}
+}
