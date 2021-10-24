@@ -1,0 +1,51 @@
+.breadcrumb {
+	// margin-top 설정해야 합니다.
+	&-list {
+		@include flexbox(start);
+		height: 40px;
+		flex-wrap: wrap;
+	}
+
+	&-item {
+		@include inline-flexbox;
+		a {
+			@include text-style(13, $secondary);
+			font-weight: 400;
+
+			&:active {
+				opacity: 0.4;
+			}
+		}
+
+		.ic-chevron {
+			width: 12px;
+			height: 12px;
+			font-size: 12px;
+			color: $secondary;
+			transform: rotate(-90deg);
+			margin: 0 2px;
+		}
+	}
+
+	@include responsive(T) {
+		&-list {
+			height: 24px;
+		}
+
+		&-item {
+			@include text-style(14);
+
+			.ic-chevron {
+				margin: 0 4px;
+			}
+		}
+	}
+
+	@include responsive(D) {
+		&-item {
+			a:hover {
+				opacity: 0.4;
+			}
+		}
+	}
+}
