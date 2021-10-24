@@ -1,0 +1,36 @@
+.carousel {
+	position: relative;
+
+	.slider-list {
+	}
+
+	.slider-item {
+		img {
+			width: 100%;
+			height: auto;
+		}
+	}
+
+	.thumbnail {
+		@include pos-center-x;
+		bottom: 0;
+		background-color: hotpink;
+		height: 8px;
+
+		&-item {
+			width: 6px;
+			height: 6px;
+			background-color: $white;
+			opacity: 0.7;
+			overflow: hidden;
+			border-radius: 50%;
+
+			&.is-active {
+				opacity: 1;
+			}
+
+			img {
+			}
+		}
+	}
+}
