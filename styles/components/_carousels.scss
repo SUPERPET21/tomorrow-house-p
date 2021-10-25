@@ -53,6 +53,7 @@
 
 	@include responsive(T) {
 		margin: 0;
+		margin-right: 30px;
 
 		.slider-list {
 			margin-bottom: 8px;
