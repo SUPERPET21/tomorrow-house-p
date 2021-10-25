@@ -17,7 +17,7 @@
 		margin-bottom: 16px;
 
 		.star-rating {
-			@include star-rating(13);
+			@include star-rating(13px);
 			margin-right: 8px;
 		}
 
@@ -39,6 +39,14 @@
 				color: $blue;
 				line-height: 24px;
 				font-weight: 700;
+			}
+
+			.rate {
+				font-family: $font-price;
+			}
+
+			.percent {
+				font-family: $font-main;
 			}
 
 			.price-off {
@@ -74,6 +82,83 @@
 		span {
 			@include text-style(16, $primary);
 			font-weight: 400;
+			margin-bottom: 2px;
+		}
+	}
+
+	@include responsive(T) {
+		padding: 0;
+
+		.info-brand {
+			display: inline-block;
+			margin-bottom: 8px;
+		}
+
+		.info-title {
+			@include text-style(24);
+			margin-bottom: 8px;
+		}
+
+		.info-review {
+			.star-rating {
+				@include star-rating(16px);
+			}
+
+			p {
+				@include flexbox(start);
+				@include text-style(13, $blue);
+				font-weight: 700;
+			}
+		}
+
+		.info-price {
+			@include flexbox(start, end);
+
+			&-original {
+				@include flexbox(start, end);
+				margin-right: 16px;
+
+				.rate {
+					font-size: 44px;
+					line-height: 36px;
+					margin-right: 2px;
+				}
+
+				.percent {
+					font-size: 20px;
+					line-height: 20px;
+				}
+			}
+
+			.price-off {
+				@include text-style(14, $secondary);
+				font-weight: 400;
+			}
+
+			&-off {
+				@include flexbox(start);
+
+				.price-32 {
+					margin-right: 8px;
+				}
+			}
+		}
+
+		.info-benefit {
+			margin-bottom: 20px;
+		}
+
+		.info-delivery {
+			border-top: 1px solid $border;
+			border-bottom: 1px solid $border;
+			padding-top: 16px;
+			padding-bottom: 20px;
+
+			span {
+				@include text-style(16, $primary);
+				font-weight: 400;
+				margin-bottom: 8px;
+			}
 		}
 	}
 }
