@@ -1,8 +1,8 @@
 .breadcrumb {
-	// margin-top 설정해야 합니다.
+	padding: 10px 0;
+
 	&-list {
 		@include flexbox(start);
-		height: 40px;
 		flex-wrap: wrap;
 	}
 
@@ -28,6 +28,8 @@
 	}
 
 	@include responsive(T) {
+		padding: 16px 0;
+
 		&-list {
 			height: 24px;
 		}
@@ -42,6 +44,8 @@
 	}
 
 	@include responsive(D) {
+		padding: 24px 0;
+
 		&-item {
 			a:hover {
 				opacity: 0.4;
