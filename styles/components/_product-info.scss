@@ -1,0 +1,79 @@
+.product-info {
+	padding: 20px 0;
+
+	.info-brand {
+		@include text-style(13, $blue);
+		font-weight: 700;
+	}
+
+	.info-title {
+		@include text-style(18, $dark);
+		font-weight: 400;
+		margin-bottom: 4px;
+	}
+
+	.info-review {
+		@include flexbox(start);
+		margin-bottom: 16px;
+
+		.star-rating {
+			@include star-rating(13);
+			margin-right: 8px;
+		}
+
+		p strong {
+			@include text-style(13, $blue);
+			font-weight: 700;
+		}
+	}
+
+	.info-price {
+		margin-bottom: 12px;
+
+		&-original {
+			@include flexbox(start);
+
+			.rate,
+			.percent {
+				font-size: 20px;
+				color: $blue;
+				line-height: 24px;
+				font-weight: 700;
+			}
+
+			.price-off {
+				@include text-style(14, $secondary);
+				font-weight: 400;
+			}
+		}
+
+		&-off {
+			@include flexbox(start);
+
+			.price-20 {
+				margin-right: 4px;
+			}
+		}
+	}
+
+	.info-benefit {
+		@include text-style(13, $secondary);
+		margin-bottom: 16px;
+
+		strong {
+			color: $blue;
+			margin-right: 4px;
+		}
+	}
+
+	.info-delivery {
+		@include column-flexbox(start, start);
+		border-top: 1px solid $border;
+		padding-top: 12px;
+
+		span {
+			@include text-style(16, $primary);
+			font-weight: 400;
+		}
+	}
+}
