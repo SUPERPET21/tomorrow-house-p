@@ -1,0 +1,46 @@
+.product-selling-option-form {
+	padding-top: 20px;
+
+	.select-group.is-active {
+		.form-select {
+			border-color: $blue;
+
+			.ic-caret {
+				color: $blue;
+			}
+		}
+	}
+
+	.select-group01 {
+		margin-bottom: 8px;
+	}
+
+	.select-group02 {
+		margin-bottom: 20px;
+	}
+
+	.selling-option-form {
+		&-price {
+			@include flexbox(between);
+			margin-bottom: 22px;
+
+			.order-price {
+				@include text-style(13, $dark);
+				font-weight: 700;
+			}
+		}
+
+		&-button-group {
+			@include flexbox(between);
+
+			button {
+				flex-grow: 1;
+				flex-shrink: 1;
+
+				&:first-child {
+					margin-right: 8px;
+				}
+			}
+		}
+	}
+}
