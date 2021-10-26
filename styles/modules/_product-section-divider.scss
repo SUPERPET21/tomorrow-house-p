@@ -1,0 +1,10 @@
+.product-section-divider {
+	display: block;
+	height: 8px;
+	background-color: $border;
+	margin: 0 -15px;
+
+	&.is-big {
+		height: 24px;
+	}
+}
