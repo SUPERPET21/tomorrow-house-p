@@ -41,6 +41,11 @@
 			a {
 				@include text-style(16);
 				height: 53px; // 태블릿 크기로 바뀌면서 border-top 1px 생기기 때문에 height를 54가 아닌 53픽셀로 준 것
+				transition: color 200ms ease-in-out;
+
+				&:hover {
+					color: $blue;
+				}
 
 				strong {
 					@include text-style(16);
