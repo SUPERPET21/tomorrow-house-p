@@ -1,7 +1,7 @@
 .product-tab {
 	border-bottom: 1px solid $border;
 	height: 40px;
-	background-color: $background;
+	background-color: $white;
 	position: sticky;
 	top: $gnb-height-sm + $lnb-height-sm + 2;
 	left: 0;
@@ -43,6 +43,7 @@
 		border-top: 1px solid $border;
 		height: 54px;
 		top: $gnb-height-md + $lnb-height-md + 1;
+		background-color: $background;
 
 		&-list {
 			margin: 0;
