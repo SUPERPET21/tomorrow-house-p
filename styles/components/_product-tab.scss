@@ -5,6 +5,7 @@
 
 	&-list {
 		@include flexbox;
+		margin: 0 -15px;
 	}
 
 	&-item {
@@ -36,6 +37,10 @@
 	@include responsive(T) {
 		border-top: 1px solid $border;
 		height: 54px;
+
+		&-list {
+			margin: 0;
+		}
 
 		&-item {
 			a {
