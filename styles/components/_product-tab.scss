@@ -13,8 +13,9 @@
 	}
 
 	&-item {
-		flex-grow: 1;
-		flex-shrink: 1;
+		// flex-grow: 1;
+		// flex-shrink: 1;
+		width: calc(100% / 5);
 
 		&.is-active {
 			a {
