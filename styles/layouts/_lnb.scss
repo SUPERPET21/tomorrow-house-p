@@ -3,6 +3,11 @@
 	border-bottom: 1px solid $border;
 	background-color: $white;
 	text-align: center;
+	position: fixed;
+	top: $gnb-height-sm + 1px; // 1px: gnb의 border-bottom size
+	left: 0;
+	width: 100%;
+	z-index: $lnb-level;
 
 	&::-webkit-scrollbar {
 		display: none;
@@ -38,6 +43,7 @@
 
 	@include responsive(T) {
 		text-align: left;
+		top: $gnb-height-md + 1px;
 
 		&-list {
 			margin-left: 0;
