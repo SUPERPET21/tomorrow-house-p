@@ -1,3 +1,11 @@
+.product-show {
+	margin-top: $gnb-height-sm + $lnb-height-sm + 2px; // 2px: gnb, lnb의 border-bottom size
+
+	@include responsive(T) {
+		margin-top: $gnb-height-md + $lnb-height-md + 2px;
+	}
+}
+
 .product-info-wrapper {
 	@include responsive(T) {
 		margin-bottom: 40px;
