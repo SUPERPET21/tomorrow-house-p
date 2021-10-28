@@ -1,0 +1,41 @@
+.product-table {
+	$tr-width-sm: 100px;
+	$tr-width-md: 140px;
+	$tr-padding: 12px;
+
+	border-collapse: collapse;
+	width: 100%;
+	margin-top: 20px;
+
+	tr {
+		border-bottom: 1px solid $border;
+	}
+
+	th {
+		@include text-style(12, $secondary);
+		font-weight: 400;
+		border-collapse: collapse;
+		padding: $tr-padding;
+		width: $tr-width-sm + $tr-padding * 2;
+		text-align: left;
+	}
+
+	td {
+		@include text-style(12, $primary);
+		font-weight: 400;
+		padding: $tr-padding 0;
+	}
+
+	@include responsive(T) {
+		margin-top: 40px;
+
+		th {
+			@include text-style(14);
+			width: $tr-width-md + $tr-padding * 2;
+		}
+
+		td {
+			@include text-style(14);
+		}
+	}
+}
