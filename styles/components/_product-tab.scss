@@ -19,15 +19,16 @@
 		width: calc(100% / 5);
 
 		&.is-active {
-			a {
+			button {
 				color: $blue;
 				border-bottom: 2px solid $blue;
 			}
 		}
 
-		a {
+		button {
 			@include text-style(13, $dark);
 			@include flexbox;
+			width: 100%;
 			font-weight: 700;
 			border-bottom: 2px solid transparent;
 			height: 40px;
@@ -51,7 +52,7 @@
 		}
 
 		&-item {
-			a {
+			button {
 				@include text-style(16);
 				height: 53px; // 태블릿 크기로 바뀌면서 border-top 1px 생기기 때문에 height를 54가 아닌 53픽셀로 준 것
 				transition: color 200ms ease-in-out;
