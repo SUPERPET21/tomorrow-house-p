@@ -6,6 +6,7 @@
 	top: $gnb-height-sm + $lnb-height-sm + 2;
 	left: 0;
 	width: 100%;
+	z-index: $product-tab-level;
 
 	&-list {
 		@include flexbox;
