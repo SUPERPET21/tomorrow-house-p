@@ -10,7 +10,7 @@
 }
 
 .pagination {
-	@include flexbox(start);
+	@include flexbox;
 
 	.page-control {
 		@extend %page-item-base;
