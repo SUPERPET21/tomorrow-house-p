@@ -1,0 +1,121 @@
+.product-review-content {
+  .review-item {
+    padding: 20px 0;
+
+    &:not(:last-child) {
+      border-bottom: 1px solid $border;
+    }
+  }
+
+  .review-card {
+
+    &-header {
+      @include flexbox(start);
+      margin-bottom: 20px;
+
+      .avatar-24 {
+        margin-right: 8px;
+      }
+
+      .info {
+        .username {
+          @include text-style(13, $primary);
+          font-weight: 400;
+        }
+
+        .detail {
+          @include flexbox(start);
+
+          .star-rating-13 {
+            margin-right: 4px;
+          }
+
+          time, span {
+            @include text-style(12, $secondary);
+            font-weight: 400;
+          }
+
+          time {
+            @include flexbox(start);
+          }
+
+          time::after {
+            display: block;
+            content: '∙';
+            margin: 0 4px;
+          }
+        }
+      }
+    }
+
+    &-body {
+      margin-bottom: 20px;
+
+      .review-image {
+        width: 64px;
+        height: 64px;
+        border-radius: 4px;
+        overflow: hidden;
+        margin-bottom: 8px;
+
+        img {
+          display: block;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+
+      p {
+        @include text-style(13, $primary);
+        font-weight: 400;
+      }
+    }
+
+    &-footer {
+      @include flexbox(start);
+      
+      button {
+        width: 120px;
+        margin-right: 8px;
+
+        .ic-check {
+          font-size: 20px;
+          margin-right: 4px;
+          margin-left: -6px;
+        }
+      }
+
+      p {
+        @include text-style(12, $primary);
+        font-weight: 400;
+
+        strong {
+          @include text-style(12, $dark);
+          font-weight: 700;
+        }
+      }
+    }
+  }
+
+  @include responsive(T) {
+    .review-item {
+      padding: 40px 0;
+    }
+
+    .review-card {
+      &-body {
+        .review-image {
+          width: 112px;
+          height: 112px;
+          margin-bottom: 16px;
+        }
+      }
+
+      &-body,
+      &-footer {
+        padding-left: 32px;
+      }
+    }
+  }
+}
