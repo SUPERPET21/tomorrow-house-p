@@ -1,0 +1,166 @@
+.product-inquiry-content {
+	.inquiry-item {
+		margin-bottom: 40px;
+	}
+
+	.inquiry-card {
+		&-detail {
+			@include flexbox(start);
+			margin-bottom: 8px;
+
+			dd {
+				@include flexbox(start);
+				@include text-style(12, $primary);
+				font-weight: 400;
+
+				&:not(:last-child)::after {
+					display: block;
+					content: '|';
+					margin: 0 4px;
+					color: $primary;
+				}
+
+				&.is-answered {
+					color: $blue;
+				}
+			}
+		}
+
+		&-date {
+			@include flexbox(start);
+			margin-bottom: 8px;
+
+			h2 {
+				@include flexbox(start);
+				@include text-style(12, $secondary);
+				font-weight: 400;
+
+				&::after {
+					display: block;
+					content: '|';
+					margin: 0 4px;
+					color: $secondary;
+				}
+			}
+
+			time {
+				@include text-style(12, $secondary);
+				font-weight: 400;
+			}
+		}
+
+		&-body {
+			.question-content {
+				@include flexbox(start, start);
+
+				h2 {
+					@include inline-flexbox(start, end);
+					@include text-style(13, $blue);
+					flex-shrink: 0;
+					flex-grow: 0;
+					width: 20px;
+					height: 20px;
+					font-weight: 700;
+				}
+
+				p {
+					@include flexbox(start);
+					@include text-style(13, $primary);
+
+					.ic-lock {
+						margin-right: 8px;
+						font-size: 16px;
+						color: $tertiary;
+					}
+				}
+			}
+
+			.answer-card {
+				@include flexbox(start, start);
+				margin-top: 12px;
+
+				h2 {
+					@include inline-flexbox(start, end);
+					@include text-style(13, $blue);
+					flex-shrink: 0;
+					flex-grow: 0;
+					width: 20px;
+					height: 20px;
+					font-weight: 700;
+				}
+
+				.answer-info {
+					.answer-header {
+						@include flexbox(start);
+						margin-bottom: 4px;
+
+						h2 {
+							@include text-style(13, $dark);
+							font-weight: 700;
+							margin-right: 4px;
+						}
+
+						time {
+							@include text-style(12, $secondary);
+							font-weight: 400;
+						}
+					}
+
+					p {
+						@include text-style(13, $primary);
+						font-weight: 400;
+					}
+				}
+			}
+		}
+	}
+
+	@include responsive(T) {
+		.inquiry-card {
+			&-date {
+				margin-bottom: 20px;
+			}
+
+			&-body {
+				.question-content {
+					h2 {
+						width: 24px;
+						height: 24px;
+					}
+
+					p {
+						@include text-style(16, $primary);
+					}
+				}
+
+				.answer-card {
+					margin-top: 16px;
+
+					h2 {
+						@include text-style(16);
+						width: 24px;
+						height: 24px;
+					}
+
+					.answer-info {
+						.answer-header {
+							margin-bottom: 0;
+
+							h2 {
+								@include text-style(16);
+							}
+
+							time {
+								@include text-style(12, $secondary);
+							}
+						}
+
+						p {
+							@include text-style(16);
+						}
+					}
+				}
+			}
+		}
+	}
+}
