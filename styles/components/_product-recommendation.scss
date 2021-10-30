@@ -1,0 +1,126 @@
+.product-recommendation {
+
+  .product-list {
+    @include flexbox(between, start);
+    flex-wrap: wrap;
+  }
+
+  .product-item {
+    width: calc((100% - 20px) / 2);
+
+    &:nth-child(1), &:nth-child(2) {
+      margin-bottom: 20px;
+    }
+  }
+
+  .product-card {
+    &:active {
+      .product-card-image {
+        img {
+          transform: scale(1.1);
+        }
+      }
+
+      .product-card-title {
+        opacity: 0.5;
+      }
+    }
+
+    &-image {
+      border-radius: 4px;
+      overflow: hidden;
+
+      img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 200ms ease-in-out;
+      }
+    }
+
+    &-brand {
+      @include text-style(12, $secondary);
+      margin-bottom: 4px;
+      font-weight: 400;
+    }
+
+    &-title {
+      @include text-style(12, $dark);
+      font-weight: 400;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;  
+      overflow: hidden;
+    }
+
+    &-price {
+      @include flexbox(start);
+      margin-bottom: 4px;
+
+      .rate, .percent {
+        @include text-style(18, $blue);
+        font-weight: 700;
+
+      }
+
+      .percent {
+        margin-right: 8px;
+      }
+
+      .amount {
+        @include text-style(18, $dark);
+        font-weight: 700;
+      }
+    }
+
+    &-summary {
+      @include flexbox(start);
+      margin-bottom: 8px;
+
+      .star-rating {
+        @include star-rating(12px);
+        margin-right: 2px;
+      }
+
+      strong {
+        @include text-style(12, $primary);
+        margin-right: 8px;
+      }
+
+      span {
+        @include text-style(12, $secondary);
+      }
+    }
+  }
+
+  @include responsive(T) {
+    .product-item {
+      width: 220px;
+  
+      &:nth-child(1), &:nth-child(2) {
+        margin-bottom: 0;
+      }
+
+      &:last-child {
+        display: none;
+      }
+    }
+  }
+
+  @include responsive(D) {
+    .product-card {
+      &:hover {
+        .product-card-image {
+          img {
+            transform: scale(1.1);
+          }
+        }
+  
+        .product-card-title {
+          opacity: 0.5;
+        }
+      }
+    }
+  }
+}
