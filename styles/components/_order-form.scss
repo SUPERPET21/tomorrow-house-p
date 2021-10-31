@@ -1,0 +1,45 @@
+.order-form {
+  @include flexbox(start);
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  padding: 4px;
+  background-color: $white;
+  opacity: 0.94;
+
+  .bookmark {
+    @include column-flexbox;
+    width: 72px;
+    margin-right: 4px;
+    flex-grow: 0;
+    flex-shrink: 0;
+
+    .ic-bookmark {
+      font-size: 24px;
+      color: $primary;
+      transition: opacity 100ms ease-in-out;
+    }
+
+    .badge {
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: -0.005em;
+      line-height: 16px;
+      color: $secondary;
+      transition: opacity 100ms ease-in-out;
+    }
+  }
+
+  .btn-primary { 
+    flex-grow: 1;
+    flex-shrink: 1;
+  }
+
+  @include responsive(T) {
+    .bookmark:hover {
+      .ic-bookmark, .badge {
+        opacity: 0.5;
+      }
+    }
+  }
+}
