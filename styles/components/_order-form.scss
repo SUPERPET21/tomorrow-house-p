@@ -6,6 +6,7 @@
   padding: 4px;
   background-color: $white;
   opacity: 0.94;
+  z-index: $order-form-level;
 
   .bookmark {
     @include column-flexbox;
