@@ -1,0 +1,17 @@
+.floating-order-form {
+  display: block;
+  position: sticky;
+  top: $gnb-height-md + $lnb-height-md + 53px;
+  right: 0;
+  width: 100%;
+
+  .product-selling-option-form {
+    padding-top: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    min-height: calc(100vh - 184px);
+    min-height: calc(100vh - 370px);
+  }
+}
