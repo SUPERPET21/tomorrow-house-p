@@ -184,3 +184,20 @@ productTabDelivery.addEventListener('click', () => {
 		window.scrollTo({top: deliverCollapse.offsetTop - headerHeight, behavior: 'smooth'})
 	}
 })
+
+// sidebar category 클릭 시 is-open 클래스 toggle하기
+const sidebarCommunity = document.querySelector(".sidebar-category.is-community");
+const sidebarStore = document.querySelector(".sidebar-category.is-store");
+const sidebarExpert = document.querySelector(".sidebar-category.is-expert");
+
+const sidebarArr = [
+	sidebarCommunity,
+	sidebarStore,
+	sidebarExpert
+]
+
+sidebarArr.forEach((el, i) => {
+	el.addEventListener("click", () => {
+		el.classList.toggle("is-open")
+	})
+})
