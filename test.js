@@ -6,6 +6,7 @@ const overlay = document.querySelector('.overlay')
 const isSearch = document.querySelector('.gnb-icon-button.is-search')
 const searchModal = document.querySelector('.search-modal')
 const SearchModalIsClose = document.querySelector('.search-modal .btn-ghost.is-close')
+const body = document.querySelector('body');
 
 document.querySelector('.gnb-avatar-button').addEventListener('click', (e) => {
 	myMenu.classList.toggle('is-active')
@@ -15,6 +16,7 @@ document.querySelector('.gnb-avatar-button').addEventListener('click', (e) => {
 isMenu.addEventListener('click', (e) => {
 	sidebar.classList.add('is-active')
 	overlay.classList.add('is-active')
+	body.style.overflow = 'hidden'
 })
 
 // gnb-search-button 이벤트
@@ -31,6 +33,7 @@ overlay.addEventListener('click', () => {
 	sidebar.classList.remove('is-active')
 	overlay.classList.remove('is-active')
 	orderFormModal.classList.remove('is-active');
+	body.style.overflow = 'auto';
 })
 
 // search-history of gnb-input-group
@@ -54,6 +57,7 @@ const orderFormModal = document.querySelector(".order-form-modal");
 orderFormButton.addEventListener("click", () => {
 	orderFormModal.classList.add("is-active");
 	overlay.classList.add('is-active')
+	body.style.overflow = 'hidden'
 })
 
 // 펼치기 누르기 이벤트
