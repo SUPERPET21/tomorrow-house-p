@@ -1,0 +1,7 @@
+.is-collapse {
+  display: none;
+
+  @include responsive(T) {
+    display: block;
+  }
+}
