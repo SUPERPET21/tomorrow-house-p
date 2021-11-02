@@ -124,3 +124,59 @@ productTabSpec.addEventListener('click', () => {
 		productTabItem[0].classList.add('is-active');
 	}
 })
+
+// observe로 스크롤 되었을 때 product-tab-item에 is-active 클래스 add, remove 하도록 설정하기
+
+// const callback = (entries, observer) => {
+// 	entries.forEach((entry, i) => {
+// 		if(entry.isIntersecting) {
+// 			console.log('들어옴')
+// 			productTabItem[i + 1].classList.add('is-active')
+// 		} else {
+// 			console.log('나감')
+// 			productTabItem[i + 1].classList.remove('is-active')
+// 		}
+// 	})
+// 	console.log(entries)
+// 	console.log(observer)
+// }
+// const observer = new IntersectionObserver(callback);
+
+// productArr.forEach(el => observer.observe(el))
+
+
+// product-inquiry-collapse클릭 시 product-inquiry의 is-hidden 클래스 없애기
+const inquiryCollapse = document.querySelector(".product-inquiry-collapse");
+
+inquiryCollapse.addEventListener('click', () => {
+	inquiryCollapse.classList.add("visually-hidden");
+	productInquiry.classList.remove("is-collapse");
+})
+
+productTabInquiry.addEventListener('click', () => {
+	const inquiryClassName = productInquiry.className
+
+	if(window.innerWidth < 768 && inquiryClassName.indexOf("is-collapse") != -1) {
+		window.scrollTo({top: inquiryCollapse.offsetTop - headerHeight, behavior: 'smooth'})
+	}
+})
+
+// product-deliver-collapse클릭 시 product-deliver, product-refund의 is-hidden 클래스 없애기
+const deliverCollapse = document.querySelector(".product-deliver-collapse");
+const productRefund = document.querySelector(".product-refund");
+const DeliveryDivider = document.querySelector(".product-deliver-divider");
+
+deliverCollapse.addEventListener('click', () => {
+	deliverCollapse.classList.add("visually-hidden");
+	productDelivery.classList.remove("is-collapse");
+	productRefund.classList.remove("is-collapse");
+})
+
+productTabDelivery.addEventListener('click', () => {
+	const deliveryClassName = productDelivery.className
+
+	// deliveryClassName.indexOf("is-collapse")그대로 넣으니까 is-collapse가 없는 상황에서도 계속 있다고 나와서 "-1이 아닐 때만"으로 바꿨다.
+	if(window.innerWidth < 768 && deliveryClassName.indexOf("is-collapse") != -1) {
+		window.scrollTo({top: deliverCollapse.offsetTop - headerHeight, behavior: 'smooth'})
+	}
+})
