@@ -243,7 +243,7 @@ window.addEventListener('scroll', (e) => {
 				})
 		
 				// 추천 Tab는 전체 화면에서 적용이 안되니까 override한 것
-				if(window.scrollY >= productRecommendation.offsetTop - headerHeight - 100) {
+				if(window.scrollY >= productRecommendation.offsetTop - headerHeight - 200) {
 					productTabItem.forEach((el) => {
 						el.classList.remove('is-active')
 					})
