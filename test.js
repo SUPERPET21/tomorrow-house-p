@@ -99,7 +99,7 @@ const productArr = [
 
 productTabArr.forEach((el, i) => {
 	el.addEventListener('click', () => {
-		window.scrollTo({top: productArr[i].offsetTop - headerHeight, behavior: 'smooth'})
+		window.scrollTo({top: productArr[i].offsetTop - headerHeight, behavior: 'auto'})
 		productTabItem.forEach((el) => {
 			el.classList.remove('is-active')
 		})
@@ -115,39 +115,19 @@ const productSpecTablet = document.querySelector(".product-spec.sm-hidden");
 
 productTabSpec.addEventListener('click', () => {
 	if(window.innerWidth >= 768) {
-		window.scrollTo({top: productSpecTablet.offsetTop - headerHeight, behavior: 'smooth'})
+		window.scrollTo({top: productSpecTablet.offsetTop - headerHeight, behavior: 'auto'})
 		productTabItem.forEach((el) => {
 			el.classList.remove('is-active')
 		})
 		productTabItem[0].classList.add('is-active');
 	}	else {
-		window.scrollTo({top: productSpecMobile.offsetTop - headerHeight, behavior: 'smooth'})
+		window.scrollTo({top: productSpecMobile.offsetTop - headerHeight, behavior: 'auto'})
 		productTabItem.forEach((el) => {
 			el.classList.remove('is-active')
 		})
 		productTabItem[0].classList.add('is-active');
 	}
 })
-
-// observe로 스크롤 되었을 때 product-tab-item에 is-active 클래스 add, remove 하도록 설정하기
-
-// const callback = (entries, observer) => {
-// 	entries.forEach((entry, i) => {
-// 		if(entry.isIntersecting) {
-// 			console.log('들어옴')
-// 			productTabItem[i + 1].classList.add('is-active')
-// 		} else {
-// 			console.log('나감')
-// 			productTabItem[i + 1].classList.remove('is-active')
-// 		}
-// 	})
-// 	console.log(entries)
-// 	console.log(observer)
-// }
-// const observer = new IntersectionObserver(callback);
-
-// productArr.forEach(el => observer.observe(el))
-
 
 // product-inquiry-collapse클릭 시 product-inquiry의 is-hidden 클래스 없애기
 const inquiryCollapse = document.querySelector(".product-inquiry-collapse");
@@ -161,7 +141,7 @@ productTabInquiry.addEventListener('click', () => {
 	const inquiryClassName = productInquiry.className
 
 	if(window.innerWidth < 768 && inquiryClassName.indexOf("is-collapse") != -1) {
-		window.scrollTo({top: inquiryCollapse.offsetTop - headerHeight, behavior: 'smooth'})
+		window.scrollTo({top: inquiryCollapse.offsetTop - headerHeight, behavior: 'auto'})
 	}
 })
 
@@ -181,7 +161,7 @@ productTabDelivery.addEventListener('click', () => {
 
 	// deliveryClassName.indexOf("is-collapse")그대로 넣으니까 is-collapse가 없는 상황에서도 계속 있다고 나와서 "-1이 아닐 때만"으로 바꿨다.
 	if(window.innerWidth < 768 && deliveryClassName.indexOf("is-collapse") != -1) {
-		window.scrollTo({top: deliverCollapse.offsetTop - headerHeight, behavior: 'smooth'})
+		window.scrollTo({top: deliverCollapse.offsetTop - headerHeight, behavior: 'auto'})
 	}
 })
 
@@ -201,3 +181,132 @@ sidebarArr.forEach((el, i) => {
 		el.classList.toggle("is-open")
 	})
 })
+
+// observer 구현
+
+// const observer = new IntersectionObserver((entries, observer) => {
+// 	entries.forEach((entry) => {
+// 		console.log(entry.target)
+// 	})
+// })
+
+
+
+// observe로 스크롤 되었을 때 product-tab-item에 is-active 클래스 add, remove 하도록 설정하기
+
+// const callback = (entries, observer) => {
+// 	entries.forEach((entry) => {
+// 		if(entry.isIntersecting) {
+// 			console.log('들어옴')
+// 		} else {
+// 			console.log('나감')
+// 			// productTabItem[i + 1].classList.remove('is-active')
+// 		}
+// 	})
+// 	console.log(entries)
+// 	console.log(observer)
+// }
+
+// const options = {
+// 	root: null,
+// 	rootMargin: '0px',
+// 	threshold: 0.5,
+// }
+// const observer = new IntersectionObserver(callback);
+
+// productArr.forEach(el => observer.observe(el))
+
+
+
+// 스크롤 이벤트로 구현하기
+const productArr02 = [
+	productSpecTablet,
+	productReview,
+	productInquiry,
+	productDelivery,
+	productRecommendation
+];
+
+let timer;
+window.addEventListener('scroll', (e) => {
+  if (!timer) {
+    timer = setTimeout(function() {
+      timer = null;
+			if(window.innerWidth >= 768) {
+				productArr02.forEach((el, i) => {
+					if(window.scrollY >= el.offsetTop - headerHeight) {
+						productTabItem.forEach((el) => {
+							el.classList.remove('is-active')
+						})
+						productTabItem[i].classList.add('is-active')
+					}
+				})
+		
+				// 추천 Tab는 전체 화면에서 적용이 안되니까 override한 것
+				if(window.scrollY >= productRecommendation.offsetTop - headerHeight - 100) {
+					productTabItem.forEach((el) => {
+						el.classList.remove('is-active')
+					})
+					productTabItem[4].classList.add('is-active')
+				}
+			}	else {
+				if(window.scrollY >= productSpecMobile.offsetTop - headerHeight) {
+					productTabItem.forEach((el) => {
+						el.classList.remove('is-active')
+					})
+					productTabItem[0].classList.add('is-active')
+				}
+				
+				if(window.scrollY >= productReview.offsetTop - headerHeight) {
+					productTabItem.forEach((el) => {
+						el.classList.remove('is-active')
+					})
+					productTabItem[1].classList.add('is-active')
+				}
+		
+				const inquiryClassName = productInquiry.className
+				const deliveryClassName = productDelivery.className
+				// inquiry 접혀있을 때와 펼쳤을 때
+				if(inquiryClassName.indexOf("is-collapse") != -1) {
+					if(window.scrollY >= inquiryCollapse.offsetTop - headerHeight) {
+						productTabItem.forEach((el) => {
+							el.classList.remove('is-active')
+						})
+						productTabItem[2].classList.add('is-active')
+					}
+				}	else {
+					if(window.scrollY >= productInquiry.offsetTop - headerHeight) {
+						productTabItem.forEach((el) => {
+							el.classList.remove('is-active')
+						})
+						productTabItem[2].classList.add('is-active')
+					}
+				}
+		
+				// delivery 접혀있을 때와 펼쳤을 때
+				if(deliveryClassName.indexOf("is-collapse") != -1) {
+					if(window.scrollY >= deliverCollapse.offsetTop - headerHeight) {
+						productTabItem.forEach((el) => {
+							el.classList.remove('is-active')
+						})
+						productTabItem[3].classList.add('is-active')
+					}
+				}	else {
+					if(window.scrollY >= productDelivery.offsetTop - headerHeight) {
+						productTabItem.forEach((el) => {
+							el.classList.remove('is-active')
+						})
+						productTabItem[3].classList.add('is-active')
+					}
+				}
+		
+				if(window.scrollY >= productRecommendation.offsetTop - headerHeight) {
+					productTabItem.forEach((el) => {
+						el.classList.remove('is-active')
+					})
+					productTabItem[4].classList.add('is-active')
+				}
+			}
+    }, 100);
+  }
+});
