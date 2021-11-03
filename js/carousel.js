@@ -1,6 +1,6 @@
 const slider = tns({
 	container: '.product-show .slider-list',
-	autoplay: false,
+	autoplay: true,
 	mouseDrag: true,
 	controls: false,
 	autoplayHoverPause: true,
@@ -12,7 +12,7 @@ const slider = tns({
 
 const userGallerySliderIsMobile = tns({
 	container: '.product-user-gallery.is-mobile .slider-list',
-	autoplay: false,
+	autoplay: true,
 	mouseDrag: true,
 	controls: false,
 	autoplayHoverPause: true,
