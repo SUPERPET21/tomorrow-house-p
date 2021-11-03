@@ -1,4 +1,5 @@
 {
+	"homepage": "https://superpet21.github.io/tomorrow-house-p/",
 	"name": "tomorrow-house-p",
 	"version": "1.0.0",
 	"description": "",
@@ -6,13 +7,14 @@
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"node-sass": "node-sass",
-		"sass": "node-sass -wr styles/main.scss ./style.css"
+		"sass": "node-sass -wr --source-map true styles/main.scss ./style.css"
 	},
 	"keywords": [],
 	"author": "",
 	"license": "ISC",
 	"dependencies": {
-		"node-sass": "^6.0.1"
+		"node-sass": "^6.0.1",
+		"tiny-slider": "^2.9.3"
 	},
 	"devDependencies": {
 		"sass-lint": "^1.13.1"
