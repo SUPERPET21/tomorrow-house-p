@@ -1,6 +1,6 @@
 # 오늘의 집에서의 상품 페이지를 클론 코딩하였습니다.
 
-## [해당 프로젝트 주소](https://superpet21.github.io/tomorrow-house-p/)
+## [해당 프로젝트 주소](https://super0214t.github.io/tomorrow-house-p/)
 
 ## 목적
 
